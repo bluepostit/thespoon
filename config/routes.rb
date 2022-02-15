@@ -11,4 +11,9 @@ Rails.application.routes.draw do
 
   # See a SPECIFIC restaurant - by its ID
   get 'restaurants/:id', to: 'restaurants#show', as: :restaurant
+
+  # GET filled-in form for editing an EXISTING restaurant
+  get 'restaurants/:id/edit', to: 'restaurants#edit'
+  # UPDATE an existing restaurant with the data from the form
+  patch 'restaurants/:id', to: 'restaurants#update'
 end

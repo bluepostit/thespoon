@@ -21,8 +21,22 @@ class RestaurantsController < ApplicationController
     redirect_to restaurant_path(restaurant)
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def update
+    # find the restaurant by its id
+    # update it with the data from params
+    # redirect to show page for the restaurant
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.update(restaurant_params)
+    redirect_to restaurant_path(@restaurant)
+  end
+
   private
 
+  # Strong params - whitelisted values which we will permit
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :rating)
   end
