@@ -2,6 +2,12 @@
 
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant.name %></li>
+    <li>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+      <%= link_to 'Delete',
+                  restaurant_path(restaurant),
+                  method: :delete,
+                  data: { confirm: 'Are you sure you want to delete this restaurant?' } %>
+    </li>
   <% end %>
 </ul>
